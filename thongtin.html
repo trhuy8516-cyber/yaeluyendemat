@@ -54,17 +54,37 @@
             </button>
             
             <!-- Profile Info -->
-            <div class="flex items-center gap-3 cursor-pointer">
-                <div class="w-9 h-9 bg-navy rounded-full flex items-center justify-center text-white text-xs font-bold">
-                    User
+            <!-- Profile Info (Bao gồm cả nút và Menu Dropdown) -->
+            <div class="relative" id="profile-container">
+                <!-- Nút bấm Profile -->
+                <div class="flex items-center gap-3 cursor-pointer select-none" onclick="toggleDropdown()">
+                    <div class="w-9 h-9 bg-navy rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color: #1a365d;">
+                        User
+                    </div>
+                    <div class="hidden md:block text-left">
+                        <div class="text-sm font-bold text-navy leading-tight" style="color: #1a365d;">Học viên VIP</div>
+                        <div class="text-xs text-gray-500 leading-tight">ID: 102938</div>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-gray-400 text-xs ml-1"></i>
                 </div>
-                <div class="hidden md:block text-left">
-                    <div class="text-sm font-bold text-navy leading-tight">Học viên VIP</div>
-                    <div class="text-xs text-gray-500 leading-tight">ID: 102938</div>
+
+                <!-- Menu Dropdown thả xuống -->
+                <div id="profile-dropdown" class="absolute right-0 mt-4 w-56 bg-white rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-gray-100 hidden z-50">
+                    <div class="py-2">
+                        <a href="caidat.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-700 font-medium transition-colors">
+                            <i class="fa-regular fa-user w-5 text-center mr-2 text-gray-400"></i> Thông tin cá nhân
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-700 font-medium transition-colors">
+                            <i class="fa-solid fa-wallet w-5 text-center mr-2 text-gray-400"></i> Nạp tiền
+                        </a>
+                        <!-- Đường kẻ ngang phân cách -->
+                        <div class="h-px bg-gray-100 my-1 mx-2"></div>
+                        <a href="#" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-700 font-medium transition-colors">
+                            <i class="fa-solid fa-book-open w-5 text-center mr-2 text-gray-400"></i> Các khóa đang có
+                        </a>
+                    </div>
                 </div>
-                <i class="fa-solid fa-chevron-down text-gray-400 text-xs ml-1"></i>
             </div>
-        </div>
     </header>
 
     <!-- Khu vực thân trang (Sidebar + Main Content) -->
@@ -244,5 +264,25 @@
             }, 3000);
         }
     </script>
+<script>
+        // Hàm bật/tắt menu dropdown
+        function toggleDropdown() {
+            const dropdown = document.getElementById('profile-dropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Tự động đóng menu nếu người dùng click ra vùng khác trên màn hình
+        document.addEventListener('click', function(event) {
+            const profileContainer = document.getElementById('profile-container');
+            const dropdown = document.getElementById('profile-dropdown');
+            
+            // Nếu nơi click không nằm trong khu vực profile, và menu đang mở thì đóng nó lại
+            if (profileContainer && !profileContainer.contains(event.target)) {
+                if (!dropdown.classList.contains('hidden')) {
+                    dropdown.classList.add('hidden');
+                }
+            }
+        });
+    </script>    
 </body>
 </html>
