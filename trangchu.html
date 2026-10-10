@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ học tập - YAECUTE</title>
+    <!-- Tích hợp Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tích hợp FontAwesome cho icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Tùy chỉnh thanh cuộn cho đẹp mắt */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        
+        /* Ẩn thanh cuộn trên mobile cho menu điều hướng */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-[#f8f6f0] text-[#1a365d] font-sans antialiased min-h-screen flex flex-col">
+
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            
+            <!-- Logo & Tên thương hiệu -->
+            <div class="flex items-center gap-3 shrink-0 cursor-pointer">
+                <div class="text-4xl font-black text-[#c51624] select-none leading-none mt-1">1</div>
+                <div class="hidden sm:block text-xl font-bold tracking-tight text-[#1a365d]">YAECUTE</div>
+            </div>
+
+            <!-- Ô tìm kiếm (Ẩn trên mobile nhỏ, hiện trên tablet/desktop) -->
+            <div class="hidden md:flex flex-1 max-w-xl mx-8">
+                <div class="relative w-full">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm"></i>
+                    </div>
+                    <input type="text" class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full bg-gray-50 focus:bg-white focus:outline-none focus:border-[#1a365d] focus:ring-1 focus:ring-[#1a365d] text-sm transition-colors" placeholder="Tìm kiếm khóa học, bài giảng...">
+                </div>
+            </div>
+
+            <!-- Công cụ & User Avatar -->
+            <div class="flex items-center gap-4 sm:gap-6 shrink-0">
+                <!-- Nút tìm kiếm mobile -->
+                <button class="md:hidden text-gray-500 hover:text-[#1a365d]">
+                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                </button>
+                
+                <!-- Thông báo -->
+                <button class="relative text-gray-500 hover:text-[#1a365d] transition-colors">
+                    <i class="fa-regular fa-bell text-xl"></i>
+                    <!-- Dấu chấm đỏ thông báo mới -->
+                    <span class="absolute top-0 right-0 block h-2.5 w-2.5 rounded-full bg-[#c51624] ring-2 ring-white"></span>
+                </button>
+
+                <!-- User Profile -->
+                <button class="flex items-center gap-2 focus:outline-none">
+                    <img src="https://placehold.co/100x100/1a365d/ffffff?text=User" alt="Avatar" class="h-9 w-9 rounded-full object-cover border border-gray-200">
+                    <div class="hidden lg:block text-left">
+                        <p class="text-sm font-bold text-[#1a365d] leading-none">Học viên VIP</p>
+                        <p class="text-xs text-gray-500 mt-1">ID: 102938</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-xs text-gray-400 hidden lg:block ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-[1400px] mx-auto w-full px-4 sm:px-6 py-6 flex flex-col md:flex-row gap-6 lg:gap-8 flex-1">
+        
+        <!-- Trên mobile: cuộn ngang. Trên desktop: cột cố định -->
+        <aside class="w-full md:w-56 lg:w-64 shrink-0">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-2 md:p-4 sticky top-24">
+                <nav class="flex md:flex-col gap-1 md:gap-2 overflow-x-auto hide-scrollbar">
+                    
+                    <!-- Item Active (Trang chủ) -->
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 bg-red-50 text-[#c51624] rounded-lg font-bold transition-colors whitespace-nowrap md:whitespace-normal shrink-0">
+                        <i class="fa-solid fa-house w-5 text-center"></i>
+                        <span class="text-sm">Trang chủ</span>
+                    </a>
+
+                    <!-- Các Item khác -->
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-[#1a365d] rounded-lg font-medium transition-colors whitespace-nowrap md:whitespace-normal shrink-0">
+                        <i class="fa-solid fa-book-open w-5 text-center"></i>
+                        <span class="text-sm">Khóa học của tôi</span>
+                    </a>
+
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-[#1a365d] rounded-lg font-medium transition-colors whitespace-nowrap md:whitespace-normal shrink-0">
+                        <i class="fa-regular fa-calendar-days w-5 text-center"></i>
+                        <span class="text-sm">Lịch học</span>
+                    </a>
+
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-[#1a365d] rounded-lg font-medium transition-colors whitespace-nowrap md:whitespace-normal shrink-0">
+                        <i class="fa-solid fa-chart-pie w-5 text-center"></i>
+                        <span class="text-sm">Kết quả học tập</span>
+                    </a>
+
+                    <!-- Divider (chỉ hiện trên desktop) -->
+                    <div class="hidden md:block h-px bg-gray-100 my-2 mx-2"></div>
+
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-[#1a365d] rounded-lg font-medium transition-colors whitespace-nowrap md:whitespace-normal shrink-0">
+                        <i class="fa-solid fa-gear w-5 text-center"></i>
+                        <span class="text-sm">Cài đặt tài khoản</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="flex-1 min-w-0 flex flex-col gap-8">
+            
+            <!-- Banner Chào mừng & Thống kê tổng quan -->
+            <section class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 lg:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 relative overflow-hidden">
+                <!-- Background Decoration (Tùy chọn) -->
+                <div class="absolute top-0 right-0 -mt-10 -mr-10 opacity-5 pointer-events-none">
+                    <i class="fa-solid fa-clapperboard text-9xl"></i>
+                </div>
+                
+                <div class="relative z-10">
+                    <h1 class="text-2xl font-extrabold text-[#1a365d] mb-2">Chào mừng trở lại, Học viên! 👋</h1>
+                    <p class="text-gray-500 text-sm">Hãy tiếp tục hành trình chinh phục kiến thức của bạn hôm nay.</p>
+                </div>
+                
+                <div class="flex items-center gap-4 relative z-10 bg-[#f8f6f0] p-4 rounded-lg w-full sm:w-auto">
+                    <div class="w-12 h-12 rounded-full border-4 border-[#c51624] border-t-transparent flex items-center justify-center font-bold text-[#c51624] shrink-0" style="transform: rotate(45deg);">
+                        <span style="transform: rotate(-45deg);">3</span>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Khóa học đang mở</p>
+                        <p class="text-[#1a365d] font-bold text-sm">Mục tiêu tuần này: Hoàn thành 5 bài giảng</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex justify-between items-end mb-4">
+                    <h2 class="text-xl font-extrabold text-[#1a365d]">Đang học dở</h2>
+                    <a href="#" class="text-sm font-bold text-[#c51624] hover:underline">Xem tất cả</a>
+                </div>
+                
+                <!-- Grid Khóa học -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-5">
+                    
+                    <!-- Card Khóa học 1 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow group flex flex-col">
+                        <div class="relative h-40 overflow-hidden bg-gray-200">
+                            <img src="https://placehold.co/600x400/e2e8f0/1a365d?text=Toán+Đại+Số" alt="Course Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <!-- Overlay Play Button -->
+                            <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#c51624] shadow-lg">
+                                    <i class="fa-solid fa-play ml-1"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex gap-2 mb-2">
+                                <span class="px-2 py-1 bg-blue-50 text-[#1a365d] text-[10px] font-bold uppercase rounded">Toán học</span>
+                            </div>
+                            <h3 class="font-bold text-[#1a365d] mb-1 line-clamp-2">Luyện Thi HSA Đại Số - Chuyên đề Hàm Số Cơ Bản</h3>
+                            <p class="text-xs text-gray-500 mb-4">Bài học tiếp: Đạo hàm của hàm số hợp</p>
+                            
+                            <!-- Progress Bar -->
+                            <div class="mt-auto">
+                                <div class="flex justify-between text-xs font-bold mb-1.5">
+                                    <span class="text-[#c51624]">65%</span>
+                                    <span class="text-gray-400">15/24 Bài</span>
+                                </div>
+                                <div class="w-full bg-gray-100 rounded-full h-1.5 mb-4 overflow-hidden">
+                                    <div class="bg-[#c51624] h-1.5 rounded-full" style="width: 65%"></div>
+                                </div>
+                                <button class="w-full py-2 bg-[#f8f6f0] hover:bg-gray-200 text-[#1a365d] text-sm font-bold rounded-lg transition-colors">
+                                    Tiếp tục học
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Khóa học 2 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow group flex flex-col">
+                        <div class="relative h-40 overflow-hidden bg-gray-200">
+                            <img src="https://placehold.co/600x400/e2e8f0/1a365d?text=Vật+Lý+12" alt="Course Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex gap-2 mb-2">
+                                <span class="px-2 py-1 bg-green-50 text-green-700 text-[10px] font-bold uppercase rounded">Vật Lý</span>
+                            </div>
+                            <h3 class="font-bold text-[#1a365d] mb-1 line-clamp-2">Tổng Ôn Vật Lý 12 - Dao Động Cơ Điện</h3>
+                            <p class="text-xs text-gray-500 mb-4">Bài học tiếp: Con lắc lò xo</p>
+                            
+                            <div class="mt-auto">
+                                <div class="flex justify-between text-xs font-bold mb-1.5">
+                                    <span class="text-[#c51624]">30%</span>
+                                    <span class="text-gray-400">6/20 Bài</span>
+                                </div>
+                                <div class="w-full bg-gray-100 rounded-full h-1.5 mb-4 overflow-hidden">
+                                    <div class="bg-[#c51624] h-1.5 rounded-full" style="width: 30%"></div>
+                                </div>
+                                <button class="w-full py-2 bg-[#f8f6f0] hover:bg-gray-200 text-[#1a365d] text-sm font-bold rounded-lg transition-colors">
+                                    Tiếp tục học
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-xl font-extrabold text-[#1a365d] mb-4">Gợi ý cho bạn</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-5">
+                    
+                    <!-- Khóa học gợi ý 1 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                        <div class="relative h-36 overflow-hidden">
+                            <img src="https://placehold.co/600x400/1a365d/ffffff?text=Hóa+Học+Vô+Cơ" alt="Suggest" class="w-full h-full object-cover">
+                            <div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold text-[#c51624]">Mới</div>
+                        </div>
+                        <div class="p-4 flex flex-col flex-1">
+                            <h3 class="font-bold text-[#1a365d] text-sm mb-1 leading-snug">Chuyên đề Hóa Vô Cơ - Luyện thi TSA</h3>
+                            <div class="flex items-center gap-2 text-xs text-gray-500 mb-4">
+                                <span><i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.9</span>
+                                <span>•</span>
+                                <span>32 Bài giảng</span>
+                            </div>
+                            <button class="mt-auto w-full py-2 border border-[#c51624] text-[#c51624] hover:bg-[#c51624] hover:text-white text-sm font-bold rounded-lg transition-colors">
+                                Xem chi tiết
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Khóa học gợi ý 2 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                        <div class="relative h-36 overflow-hidden">
+                            <img src="https://placehold.co/600x400/c51624/ffffff?text=Tiếng+Anh+B1" alt="Suggest" class="w-full h-full object-cover">
+                            <div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold text-[#1a365d]">Hot</div>
+                        </div>
+                        <div class="p-4 flex flex-col flex-1">
+                            <h3 class="font-bold text-[#1a365d] text-sm mb-1 leading-snug">Lấy gốc Tiếng Anh B1 trong 30 ngày</h3>
+                            <div class="flex items-center gap-2 text-xs text-gray-500 mb-4">
+                                <span><i class="fa-solid fa-star text-yellow-400 mr-1"></i> 4.8</span>
+                                <span>•</span>
+                                <span>45 Bài giảng</span>
+                            </div>
+                            <button class="mt-auto w-full py-2 border border-[#c51624] text-[#c51624] hover:bg-[#c51624] hover:text-white text-sm font-bold rounded-lg transition-colors">
+                                Xem chi tiết
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Khóa học gợi ý 3 (Ẩn trên màn hình nhỏ để cân đối grid) -->
+                    <div class="hidden xl:flex bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow flex-col">
+                        <div class="relative h-36 overflow-hidden">
+                            <img src="https://placehold.co/600x400/1a365d/ffffff?text=Kỹ+Năng+Mềm" alt="Suggest" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 flex flex-col flex-1">
+                            <h3 class="font-bold text-[#1a365d] text-sm mb-1 leading-snug">Kỹ năng Quản lý thời gian hiệu quả</h3>
+                            <div class="flex items-center gap-2 text-xs text-gray-500 mb-4">
+                                <span><i class="fa-solid fa-star text-yellow-400 mr-1"></i> 5.0</span>
+                                <span>•</span>
+                                <span>12 Bài giảng</span>
+                            </div>
+                            <button class="mt-auto w-full py-2 border border-[#c51624] text-[#c51624] hover:bg-[#c51624] hover:text-white text-sm font-bold rounded-lg transition-colors">
+                                Xem chi tiết
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
