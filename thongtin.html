@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cài đặt tài khoản - YAECUTE</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f3f4f6; /* Màu nền xám nhạt */
+        }
+        .text-navy { color: #1a365d; }
+        .text-custom-red { color: #c51624; }
+        .bg-custom-red { background-color: #c51624; }
+        
+        /* Style cho thanh cuộn ẩn bớt cho đẹp */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <!-- Header (Giống hệt trang chủ) -->
+    <header class="bg-white py-3 px-6 flex justify-between items-center border-b border-gray-200 z-20 shrink-0">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+            <div class="text-3xl font-black text-custom-red select-none">1</div>
+            <div class="text-xl font-bold text-navy tracking-wide">YAECUTE</div>
+        </div>
+
+        <!-- Thanh tìm kiếm -->
+        <div class="hidden md:flex flex-1 max-w-xl mx-8">
+            <div class="relative w-full">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm"></i>
+                </div>
+                <input type="text" class="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-full focus:outline-none focus:border-blue-300 focus:bg-white text-sm" placeholder="Tìm kiếm khóa học, bài giảng...">
+            </div>
+        </div>
+
+        <!-- User Actions -->
+        <div class="flex items-center gap-5">
+            <!-- Chuông thông báo -->
+            <button class="relative text-gray-500 hover:text-navy transition">
+                <i class="fa-regular fa-bell text-xl"></i>
+                <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+            </button>
+            
+            <!-- Profile Info -->
+            <div class="flex items-center gap-3 cursor-pointer">
+                <div class="w-9 h-9 bg-navy rounded-full flex items-center justify-center text-white text-xs font-bold">
+                    User
+                </div>
+                <div class="hidden md:block text-left">
+                    <div class="text-sm font-bold text-navy leading-tight">Học viên VIP</div>
+                    <div class="text-xs text-gray-500 leading-tight">ID: 102938</div>
+                </div>
+                <i class="fa-solid fa-chevron-down text-gray-400 text-xs ml-1"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Khu vực thân trang (Sidebar + Main Content) -->
+    <div class="flex flex-1 overflow-hidden">
+        
+        <!-- Sidebar Menu -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col py-6 px-4 hidden md:flex shrink-0">
+            <nav class="flex-1 space-y-2">
+                <!-- Chú ý: Ở trang này, nút Cài đặt sẽ sáng lên, Trang chủ sẽ tối đi -->
+                <a href="trangchu.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                    <i class="fa-solid fa-house w-5 text-center text-gray-400"></i> Trang chủ
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                    <i class="fa-solid fa-book w-5 text-center text-gray-400"></i> Khóa học của tôi
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                    <i class="fa-regular fa-calendar w-5 text-center text-gray-400"></i> Lịch học
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                    <i class="fa-solid fa-chart-pie w-5 text-center text-gray-400"></i> Kết quả học tập
+                </a>
+            </nav>
+
+            <div class="border-t border-gray-100 pt-4 mt-2">
+                <!-- Nút Cài đặt đang Active -->
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-red-50 text-custom-red rounded-xl font-bold transition-colors text-sm border border-red-100">
+                    <i class="fa-solid fa-gear w-5 text-center"></i> Cài đặt tài khoản
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content (Form Cài đặt) -->
+        <main class="flex-1 overflow-y-auto p-6 md:p-8 relative">
+            <div class="max-w-4xl mx-auto">
+                
+                <!-- Tiêu đề trang -->
+                <div class="mb-8">
+                    <h1 class="text-2xl font-extrabold text-navy">Hồ sơ cá nhân</h1>
+                    <p class="text-gray-500 text-sm mt-1">Cập nhật thông tin của bạn để chúng tôi hỗ trợ tốt nhất.</p>
+                </div>
+
+                <!-- Khối chứa form -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+                    
+                    <form id="profile-form" onsubmit="saveSettings(event)">
+                        
+                        <!-- Avatar Section -->
+                        <div class="flex items-center gap-6 mb-8 pb-8 border-b border-gray-100">
+                            <div class="w-20 h-20 rounded-full bg-navy text-white flex items-center justify-center text-2xl font-bold shadow-md">
+                                U
+                            </div>
+                            <div>
+                                <button type="button" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-navy font-semibold text-sm rounded-lg transition">
+                                    Đổi ảnh đại diện
+                                </button>
+                                <p class="text-xs text-gray-400 mt-2">Định dạng JPG, PNG. Tối đa 2MB.</p>
+                            </div>
+                        </div>
+
+                        <!-- Các trường thông tin cá nhân (Chia lưới 2 cột) -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            
+                            <!-- Họ và tên -->
+                            <div>
+                                <label class="block text-sm font-bold text-navy mb-2">Họ và tên</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fa-regular fa-user text-gray-400"></i>
+                                    </div>
+                                    <input type="text" value="Học viên VIP" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập họ và tên của bạn">
+                                </div>
+                            </div>
+
+                            <!-- Email / Gmail -->
+                            <div>
+                                <label class="block text-sm font-bold text-navy mb-2">Email (Gmail)</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fa-regular fa-envelope text-gray-400"></i>
+                                    </div>
+                                    <input type="email" value="hocvien@gmail.com" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập địa chỉ email">
+                                </div>
+                            </div>
+
+                            <!-- Số điện thoại -->
+                            <div>
+                                <label class="block text-sm font-bold text-navy mb-2">Số điện thoại</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fa-solid fa-phone text-gray-400 text-xs"></i>
+                                    </div>
+                                    <input type="tel" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Ví dụ: 0912345678">
+                                </div>
+                            </div>
+
+                            <!-- Lớp -->
+                            <div>
+                                <label class="block text-sm font-bold text-navy mb-2">Lớp đang học</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fa-solid fa-graduation-cap text-gray-400 text-xs"></i>
+                                    </div>
+                                    <select class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors appearance-none">
+                                        <option value="">-- Chọn khối lớp --</option>
+                                        <option value="10">Lớp 10</option>
+                                        <option value="11">Lớp 11</option>
+                                        <option value="12" selected>Lớp 12</option>
+                                        <option value="other">Đã tốt nghiệp / Khác</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Trường học -->
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-bold text-navy mb-2">Trường THPT</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fa-solid fa-school text-gray-400 text-xs"></i>
+                                    </div>
+                                    <input type="text" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập tên trường bạn đang theo học">
+                                </div>
+                            </div>
+
+                            <!-- Nơi cư trú -->
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-bold text-navy mb-2">Nơi cư trú (Tỉnh / Thành phố)</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fa-solid fa-location-dot text-gray-400 text-xs"></i>
+                                    </div>
+                                    <input type="text" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập Tỉnh / Thành phố hoặc địa chỉ cụ thể">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Nút Lưu -->
+                        <div class="mt-8 flex justify-end gap-3 pt-6 border-t border-gray-100">
+                            <button type="button" onclick="window.location.href='trangchu.html'" class="px-6 py-2.5 rounded-lg font-bold text-gray-600 bg-white border border-gray-300 hover:bg-gray-50 transition text-sm">
+                                Hủy bỏ
+                            </button>
+                            <button type="submit" class="px-6 py-2.5 rounded-lg font-bold text-white bg-custom-red hover:bg-red-800 shadow-md transition text-sm flex items-center gap-2">
+                                <i class="fa-regular fa-floppy-disk"></i> Lưu thay đổi
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            
+            <!-- Thông báo khi lưu thành công (Mặc định ẩn) -->
+            <div id="toast-success" class="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 z-50 pointer-events-none">
+                <i class="fa-solid fa-circle-check text-lg"></i>
+                <span class="font-semibold text-sm">Đã lưu thông tin thành công!</span>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Hàm xử lý khi bấm nút "Lưu thay đổi"
+        function saveSettings(event) {
+            event.preventDefault(); // Ngăn trang tự động reload
+            
+            // Xử lý gửi dữ liệu lên Database ở đây...
+            console.log("Đang lưu thông tin...");
+
+            // Hiển thị thông báo thành công (Toast)
+            const toast = document.getElementById('toast-success');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            // Tự động ẩn thông báo sau 3 giây
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
